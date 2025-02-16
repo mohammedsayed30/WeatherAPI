@@ -29,3 +29,12 @@ jobs:
       # Lint PHP files (check for syntax errors)
       - name: Lint PHP files
         run: find . -type f -name '*.php' -exec php -l {} \;
+      # Download PHP-CS-Fixer
+      - name: Download PHP-CS-Fixer
+        run: |
+          wget https://cs.symfony.com/download/php-cs-fixer-v3.phar -O php-cs-fixer.phar
+          chmod +x php-cs-fixer.phar
+
+      # Run PHP-CS-Fixer (check coding standards)
+      - name: Run PHP-CS-Fixer
+        run: ./php-cs-fixer.phar fix --dry-run --diff --verbose . || [ $? -eq 8 ]  
