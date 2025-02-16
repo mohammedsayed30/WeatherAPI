@@ -35,6 +35,16 @@ jobs:
           wget https://cs.symfony.com/download/php-cs-fixer-v3.phar -O php-cs-fixer.phar
           chmod +x php-cs-fixer.phar
 
-      # Run PHP-CS-Fixer (check coding standards)
+      # Run PHP-CS-Fixer (fix coding standards)
       - name: Run PHP-CS-Fixer
-        run: ./php-cs-fixer.phar fix --dry-run --diff --verbose . || [ $? -eq 8 ]  
+        run: ./php-cs-fixer.phar fix --verbose .
+
+      # Download PHP_CodeSniffer
+      - name: Download PHP_CodeSniffer
+        run: |
+          wget https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar -O phpcs.phar
+          chmod +x phpcs.phar
+
+      # Run PHP_CodeSniffer (check coding standards)
+      - name: Run PHP_CodeSniffer
+        run: ./phpcs.phar --standard=PSR12 .
