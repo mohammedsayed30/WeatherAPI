@@ -1,0 +1,14 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Redirect base URL to public/index.php
+    RewriteCond %{REQUEST_URI} ^/WeatherAPI/?$
+    RewriteRule ^ public/index.php [L]
+
+    # For any other URL, check if it's a file or directory
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+
+    # Route all requests to index.php
+    RewriteRule ^ public/index.php [L]
+</IfModule>
