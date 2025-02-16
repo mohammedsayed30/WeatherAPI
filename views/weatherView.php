@@ -6,10 +6,10 @@ $cityName = $APIArray['location']['name'];
 $temperature = $APIArray ["current"]['temp_c'];
 
 //get the humidity
-$humidity = $APIArray ["current"]["humidity"].'%';
+$humidity = $APIArray ["current"]["humidity"] . '%';
 
 //get the wind speed
-$windSpeed = $APIArray["current"]["wind_kph"].' km/h';
+$windSpeed = $APIArray["current"]["wind_kph"]  . ' km/h';
 
 //get the condition text
 $conditionText = $APIArray["current"]["condition"]["text"];

@@ -7,7 +7,7 @@ include_once "APIResponse.php";
 //iterate all the cities
 foreach($cities as $city){
     //access the api from "weatherapi.com" website for the frist city for the frist div
-    $url = "http://api.weatherapi.com/v1/current.json?key=09222453c2524d42b07213530251502&q=".$city;
+    $url = "http://api.weatherapi.com/v1/current.json?key=09222453c2524d42b07213530251502&q=" . $city;
     
     //get the response of the API
     $APIArray = APIResponse($url);
